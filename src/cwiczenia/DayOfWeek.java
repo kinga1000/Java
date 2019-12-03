@@ -49,6 +49,15 @@ public enum DayOfWeek {
         throw new IllegalArgumentException("There are no day of week with polish name " + polishName);
     }
 
+    public static boolean isWeekend(DayOfWeek day) {
+        if (day.workingDay == true) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
     public static DayOfWeek fromEnglishName(String englishName) {
         for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
             if (dayOfWeek.englishName.equals(englishName)) {
@@ -59,33 +68,23 @@ public enum DayOfWeek {
     }
 
 
-    public static boolean isWeekend(DayOfWeek day) {
-        if (day.workingDay == true) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public static DayOfWeek getWeekend(boolean isWeekend) {
-        ArrayList<String> weekend = new ArrayList<>();
+    public static ArrayList<DayOfWeek> getWeekend(boolean isWeekend) {
+        ArrayList<DayOfWeek> weekend = new ArrayList<>();
         for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
             if (isWeekend(dayOfWeek) == true) {
-                weekend.add(String.valueOf(dayOfWeek));
+                weekend.add(dayOfWeek);
             }
-            return weekend;
         }
+        return weekend;
     }
 
-    public static DayOfWeek getWorkingday(boolean isWeekend) {
-        ArrayList<String> workingdays = new ArrayList<>();
+    public static ArrayList<DayOfWeek> getWorkingday(boolean isWeekend) {
+        ArrayList<DayOfWeek> workingdays = new ArrayList<>();
         for (DayOfWeek dayOfWeek : DayOfWeek.values()) {
             if (isWeekend(dayOfWeek) == false) {
-                workingdays.add(String.valueOf(dayOfWeek));
+                workingdays.add(dayOfWeek);
             }
-            return workingdays;
-
         }
+        return workingdays;
     }
 }
-
