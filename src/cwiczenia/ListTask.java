@@ -42,14 +42,15 @@ public class ListTask {
 
         for (int i = 0; i < 100000; i++) {
             lista.get(i);
-
+        }
             BigInteger f1 = BigInteger.valueOf(System.currentTimeMillis());
             System.out.println("End point :" + f1);
             System.out.println("Time spent on loop execution-Array List: " + (f1.subtract(e1)));
 
             BigInteger g1 = BigInteger.valueOf(System.currentTimeMillis());
             System.out.println("Start point :" + g1);
-            for (i = 0; i < 100000; i++) {
+
+            for (int i = 0; i < 100000; i++) {
                 lista2.get(i);
             }
             BigInteger h1 = BigInteger.valueOf(System.currentTimeMillis());
@@ -58,6 +59,7 @@ public class ListTask {
 
         }
     }
-}
+
 //Results show that there is better to use ArrayList if we need quick access to data.
 //If we will focus on adding or removing elements, LinkedList is more required.
+//moze byc long zamiast BigInteger i wtedy nie subtract tylko zwykly minus
